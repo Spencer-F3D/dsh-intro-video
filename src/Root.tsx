@@ -1,7 +1,9 @@
 import React from 'react';
 import { Composition } from 'remotion';
 import { DshIntro } from './Composition';
+import { FontDebug } from './debug/FontDebug';
 import { FontDiagnostics } from './debug/FontDiagnostics';
+import { FontProbe } from './debug/FontProbe';
 import { VIDEO } from './theme';
 
 /** CI 出現方塊的那幾行文字，用來做字型診斷 */
@@ -54,6 +56,22 @@ export const RemotionRoot: React.FC = () => {
         width={VIDEO.width}
         height={VIDEO.height}
         defaultProps={{ weight: 900, sample: PROBE }}
+      />
+      <Composition
+        id="FontProbe"
+        component={FontProbe}
+        durationInFrames={1}
+        fps={VIDEO.fps}
+        width={VIDEO.width}
+        height={VIDEO.height}
+      />
+      <Composition
+        id="FontDebug"
+        component={FontDebug}
+        durationInFrames={1}
+        fps={VIDEO.fps}
+        width={VIDEO.width}
+        height={VIDEO.height}
       />
     </>
   );

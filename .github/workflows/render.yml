@@ -81,6 +81,12 @@ jobs:
           for w in 400 500 700 900; do
             pnpm exec remotion still "FontDiag$w" "out/ci-stills/fontdiag-$w.png" --log=error
           done
+          pnpm exec remotion still "FontProbe" "out/ci-stills/fontprobe.png" --log=error
+
+      # 紀錄 runner 上的系統字型，判斷中文是否其實來自系統 fallback
+      - name: List system CJK fonts
+        run: |
+          fc-list | grep -iE "noto|cjk|wqy|droid" | head -20 || echo "(no CJK fonts found)"
 
       - name: Render MP4
         if: ${{ github.event.inputs.frames == '' }}
