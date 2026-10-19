@@ -1,7 +1,7 @@
 {
   "name": "dsh-intro",
   "version": "1.0.0",
-  "description": "My Remotion video",
+  "description": "DSH 產品介紹影片（Remotion，1920×1080 / 30fps / 90s，繁體中文字幕）",
   "repository": {},
   "license": "UNLICENSED",
   "engines": {
@@ -24,7 +24,13 @@
   },
   "scripts": {
     "dev": "remotion studio",
+    "studio": "remotion studio",
+    "render": "remotion render DshIntro out/dsh-intro-1080p.mp4 --codec=h264 --crf=16 --pixel-format=yuv420p",
+    "still": "remotion still DshIntro out/still.png",
+    "fonts": "node scripts/gen-glyphs.mjs && node scripts/fetch-fonts.mjs",
+    "check": "node scripts/check-frames.mjs --sheet",
     "build": "remotion bundle",
+    "typecheck": "tsc --noEmit",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"
   },

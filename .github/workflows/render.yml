@@ -1,0 +1,96 @@
+name: Render DSH Intro
+
+# 在 GitHub 雲端 Linux runner 上把 Remotion 專案渲染成 1080p MP4（無音訊、字幕已燒錄）。
+#
+# 產物：Actions → 這次 run → Artifacts → dsh-intro-render
+#   - dsh-intro-1080p.mp4   成片
+#   - ci-stills/*.png       12 張抽樣影格（檢查字幕與安全區）
+#
+# 手動觸發（建議）：
+#   1. 到 repo 的 Actions 頁面 → 左側「Render DSH Intro」→ Run workflow
+#   2. 或在有 gh CLI 的機器上：gh workflow run render.yml
+#
+# 若只想先確認畫面、不想花時間渲整片：
+#   Run workflow 時在 frames 欄位填 60 或 120-180，就只輸出這幾格 PNG。
+
+on:
+  workflow_dispatch:
+    inputs:
+      frames:
+        description: "只渲染指定影格（例如 60 或 120-180）。留空＝整片渲染"
+        required: false
+        default: ""
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/render.yml"
+
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    name: Render 1920x1080 MP4
+    runs-on: ubuntu-24.04
+    # 90 秒 1080p 約 5–15 分鐘；上限 45 分鐘留有餘裕
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # 使用 repo 內準備好的 pnpm（避免 corepack 在 Node 22 上的簽章問題）
+      - name: Install dependencies
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - run: pnpm install --no-frozen-lockfile
+
+      # Remotion 需要 Chromium：先下載 Headless Shell，避免渲染中途才下載而超時
+      - name: Ensure headless browser
+        run: pnpm exec remotion browser ensure
+
+      - name: Typecheck
+        run: pnpm exec tsc --noEmit
+
+      # 抽樣影格（同時也是「字型子集是否缺字」的守門員：
+      # 缺字時 src/lib/fonts.ts 會讓渲染直接失敗，而不是輸出豆腐塊）
+      - name: Render check stills
+        run: |
+          mkdir -p out/ci-stills
+          for f in 30 120 330 640 780 1000 1310 1500 1700 1890 2070 2310; do
+            pnpm exec remotion still DshIntro "out/ci-stills/frame-$f.png" --frame=$f --log=error
+          done
+
+      - name: Render MP4
+        if: ${{ github.event.inputs.frames == '' }}
+        run: |
+          pnpm exec remotion render DshIntro out/dsh-intro-1080p.mp4 \
+            --codec=h264 --crf=16 --pixel-format=yuv420p --gl=swangle --log=info
+
+      - name: Render selected frames
+        if: ${{ github.event.inputs.frames != '' }}
+        run: |
+          pnpm exec remotion render DshIntro out/frames \
+            --sequence --image-format=png --frames=${{ github.event.inputs.frames }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dsh-intro-render
+          path: out/**
+          retention-days: 30
+          if-no-files-found: error

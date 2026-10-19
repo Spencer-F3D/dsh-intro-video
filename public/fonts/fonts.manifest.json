@@ -1,0 +1,181 @@
+{
+  "family": "Noto Sans TC",
+  "faces": [
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset0.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset1.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset2.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset3.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset4.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset5.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset6.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset7.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset8.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset9.woff2"
+    },
+    {
+      "weight": 400,
+      "file": "fonts/source/NotoSansTC-400-subset10.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset0.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset1.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset2.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset3.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset4.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset5.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset6.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset7.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset8.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset9.woff2"
+    },
+    {
+      "weight": 500,
+      "file": "fonts/source/NotoSansTC-500-subset10.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset0.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset1.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset2.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset3.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset4.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset5.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset6.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset7.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset8.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset9.woff2"
+    },
+    {
+      "weight": 700,
+      "file": "fonts/source/NotoSansTC-700-subset10.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset0.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset1.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset2.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset3.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset4.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset5.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset6.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset7.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset8.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset9.woff2"
+    },
+    {
+      "weight": 900,
+      "file": "fonts/source/NotoSansTC-900-subset10.woff2"
+    }
+  ]
+}
