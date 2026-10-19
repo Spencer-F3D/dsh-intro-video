@@ -67,7 +67,8 @@ for (const weight of WEIGHTS) {
     const name = `NotoSansTC-${weight}-subset${i}.woff2`;
     const dest = path.join(cacheDir, name);
     await download(face.url, dest);
-    facesOut.push({ weight, file: `fonts/source/${name}` });
+    // 保留 unicode-range：載入時據此建立 @font-face，瀏覽器才會把每個字交給正確的子集
+    facesOut.push({ weight, file: `fonts/source/${name}`, unicodeRange: face.range });
   }
   console.log(`weight ${weight}: ${picked.length} 個子集`);
 }
