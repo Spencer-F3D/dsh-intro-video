@@ -75,6 +75,13 @@ jobs:
             pnpm exec remotion still DshIntro "out/ci-stills/frame-$f.png" --frame=$f --log=error
           done
 
+      # 字型診斷圖：把「每個字在哪個字集」直接畫出來，用來比對 CI 與本機的差異
+      - name: Render font diagnostics
+        run: |
+          for w in 400 500 700 900; do
+            pnpm exec remotion still "FontDiag$w" "out/ci-stills/fontdiag-$w.png" --log=error
+          done
+
       - name: Render MP4
         if: ${{ github.event.inputs.frames == '' }}
         run: |
